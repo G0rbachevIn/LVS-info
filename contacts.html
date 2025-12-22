@@ -5,153 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты</title>
     <style>
-    /* Весь дизайн теперь внутри файла */
-    body {
-        background-color: #f2f4f6;
-        font-family: -apple-system, system-ui, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 500px; /* Узкая колонка как в приложении */
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    h1 {
-        text-align: center;
-        font-size: 24px;
-        margin-top: 40px;
-        margin-bottom: 30px;
-        color: #2c3e50;
-    }
-
-    /* Кнопки превращаются в плитки */
-    .menu-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .menu-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: white;
-        padding: 20px;
-        border-radius: 16px;
-        text-decoration: none;
-        color: #333;
-        font-weight: 600;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        transition: transform 0.1s;
-        border: 1px solid #eee;
-    }
-
-    .menu-btn:active {
-        transform: scale(0.98);
-        background: #f9f9f9;
-    }
-
-    /* Карточка для текста */
-    .content-card {
-        background: white;
-        padding: 25px;
-        border-radius: 20px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-
-    .rules-list {
-        list-style: none;
-        padding: 0;
-    }
-
-    .rules-list li {
-        padding: 15px 0;
-        border-bottom: 1px solid #f0f0f0;
-        font-size: 16px;
-        line-height: 1.4;
-    }
-
-    .brand-logo {
-        width: 50px;
-        margin-bottom: 10px;
-    }
-
-    .inn-item {
-        display: flex;
-        justify-content: space-between;
-        padding: 8px 0;
-        font-size: 14px;
-    }
-    
-    .back-link {
-        display: block;
-        text-align: center;
-        margin-top: 30px;
-        color: #999;
-        text-decoration: none;
-    }
-</style>
+        body { background: #f2f4f6; font-family: -apple-system, sans-serif; margin: 0; display: flex; justify-content: center; }
+        .container { width: 100%; max-width: 500px; padding: 20px; box-sizing: border-box; }
+        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h1 { text-align: center; font-size: 22px; color: #2c3e50; margin-bottom: 30px; }
+        .item { display: flex; align-items: center; gap: 15px; margin: 20px 0; }
+        .logo { width: 40px; height: 40px; object-fit: contain; }
+        .info h2 { font-size: 14px; margin: 0; color: #777; font-weight: normal; }
+        .phone { font-size: 18px; color: #2c3e50; text-decoration: none; font-weight: bold; }
+        .divider { height: 1px; background: #eee; margin: 20px 0; }
+        .inn-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; border-bottom: 1px solid #f9f9f9; }
+        .back { display: block; text-align: center; margin-top: 30px; color: #999; text-decoration: none; font-size: 14px; }
+    </style>
 </head>
 <body>
-
     <div class="container">
-        <div class="content-card">
+        <div class="card">
             <h1>Контакты</h1>
             
-            <div class="contact-block">
-                <div class="contact-header">
-                    <img src="https://www.vtb.ru/-/media/feature/libs/vtb-ui-kit/assets/logos/vtb-logo-mobile.svg" class="brand-logo">
-                    <div class="contact-info">
-                        <h2>Техническая поддержка терминалов ВТБ</h2>
-                        <a href="tel:88007000970" class="phone-link">8 800 700 09 70</a>
-                    </div>
+            <div class="item">
+                <svg class="logo" viewBox="0 0 100 100"><rect width="100" height="100" rx="8" fill="#0039a6"/><path d="M20 30h15l15 40h15l15-40h15" stroke="white" stroke-width="8" fill="none"/></svg>
+                <div class="info">
+                    <h2>Техподдержка ВТБ</h2>
+                    <a href="tel:88007000970" class="phone">8 800 700 09 70</a>
                 </div>
             </div>
 
-            <hr class="divider">
+            <div class="divider"></div>
 
             <div class="inn-section">
-                <h3>Реквизиты ИНН (ИП)</h3>
-                <div class="inn-list">
-                    <div class="inn-item">
-                        <span class="name">Рыжикова Е.М.</span>
-                        <span class="number">500 404 606 489</span>
-                    </div>
-                    <div class="inn-item">
-                        <span class="name">Горбачев Д.Н.</span>
-                        <span class="number">500 406 820 551</span>
-                    </div>
-                    <div class="inn-item">
-                        <span class="name">Эрмиди А.</span>
-                        <span class="number">503 240 520 250</span>
-                    </div>
+                <h2 style="font-size: 16px;">Реквизиты ИНН (ИП)</h2>
+                <div class="inn-row"><span>Рыжикова Е.М.</span><strong>500 404 606 489</strong></div>
+                <div class="inn-row"><span>Горбачев Д.Н.</span><strong>500 406 820 551</strong></div>
+                <div class="inn-row"><span>Эрмиди А.</span><strong>503 240 520 250</strong></div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="item">
+                <svg class="logo" viewBox="0 0 100 100"><rect width="100" height="100" rx="8" fill="#ff0000"/><circle cx="50" cy="55" r="25" fill="white"/></svg>
+                <div class="info">
+                    <h2>Техподдержка МТС Кассы</h2>
+                    <a href="tel:88002509990" class="phone">8 800 250 99 90</a>
                 </div>
             </div>
 
-            <hr class="divider">
-
-            <div class="contact-block">
-                <div class="contact-header">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/MTS_logo_2019.png/1200px-MTS_logo_2019.png" class="brand-logo">
-                    <div class="contact-info">
-                        <h2>Техническая поддержка МТС Кассы (LiteBox)</h2>
-                        <a href="tel:88002509990" class="phone-link">8 800 250 99 90</a>
-                    </div>
-                </div>
-            </div>
-
-            <a href="index.html" class="back-link">← Вернуться в меню</a>
+            <a href="index.html" class="back">← Вернуться в меню</a>
         </div>
     </div>
-
 </body>
 </html>
-
-
