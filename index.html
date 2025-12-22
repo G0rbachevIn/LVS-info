@@ -3,103 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LVS-info | База знаний</title>
+    <title>LVS INFO | Портал сотрудника</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #1a1a1a; --accent: #d4a017; --bg: #f4f4f4; --text: #333; }
-        body { font-family: sans-serif; margin: 0; display: flex; background: var(--bg); color: var(--text); }
-        nav { width: 280px; background: var(--primary); height: 100vh; position: fixed; color: white; padding: 20px; overflow-y: auto; box-sizing: border-box; }
-        nav h2 { color: var(--accent); margin-bottom: 20px; border-bottom: 1px solid var(--accent); padding-bottom: 10px; }
-        nav a { display: block; color: #ccc; text-decoration: none; padding: 10px 0; border-bottom: 1px solid #333; font-size: 14px; }
-        nav a:hover { color: white; padding-left: 5px; transition: 0.2s; }
-        main { margin-left: 280px; padding: 40px; width: 100%; max-width: 850px; }
-        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 25px; line-height: 1.6; }
-        h2 { color: var(--primary); border-left: 4px solid var(--accent); padding-left: 15px; margin-top: 0; }
-        .warning { background: #fff5f5; border-left: 5px solid #c53030; padding: 15px; color: #c53030; font-weight: bold; }
-        .btn { display: inline-block; background: #2481cc; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-        @media (max-width: 768px) { body { flex-direction: column; } nav { width: 100%; height: auto; position: relative; } main { margin-left: 0; padding: 20px; } }
+        :root {
+            --primary: #121212;
+            --accent: #d4a017; /* Золотой акцент */
+            --bg: #f8f9fa;
+            --text: #2d3436;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        /* Боковая панель */
+        nav {
+            width: 280px;
+            background-color: var(--primary);
+            height: 100vh;
+            position: fixed;
+            color: var(--white);
+            padding: 30px 20px;
+            overflow-y: auto;
+            box-sizing: border-box;
+            border-right: 3px solid var(--accent);
+        }
+
+        nav h2 {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        nav a {
+            display: flex;
+            align-items: center;
+            color: #b2bec3;
+            text-decoration: none;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        nav a i { margin-right: 15px; width: 20px; text-align: center; }
+
+        nav a:hover {
+            background-color: rgba(212, 160, 23, 0.1);
+            color: var(--accent);
+        }
+
+        /* Основной блок */
+        main {
+            margin-left: 280px;
+            padding: 50px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .header-banner {
+            background: var(--primary);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        .card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        h2 { color: var(--primary); margin-top: 0; font-size: 1.5rem; display: flex; align-items: center; }
+        h2 i { color: var(--accent); margin-right: 15px; }
+
+        ul { padding-left: 20px; list-style-type: none; }
+        li { margin-bottom: 12px; position: relative; }
+        li::before { content: "•"; color: var(--accent); font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
+
+        .warning-box {
+            background: #fff5f5;
+            border-left: 5px solid #ff7675;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            color: #d63031;
+            font-weight: 600;
+        }
+
+        .tg-button {
+            display: inline-flex;
+            align-items: center;
+            background: #0088cc;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .tg-button:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,136,204,0.3); }
+
+        /* Таблица графика */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .schedule-item {
+            background: #f1f2f6;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            nav { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 3px solid var(--accent); }
+            main { margin-left: 0; padding: 20px; }
+            .schedule-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
 <nav>
     <h2>LVS INFO</h2>
-    <a href="#tg">Учебник в Telegram</a>
-    <a href="#ny">График на праздники</a>
-    <a href="#rules">Правила работы</a>
-    <a href="#money">Эквайринг и Нал</a>
-    <a href="#checks">Чеки и Штрафы</a>
-    <a href="#secret">Коммерческая тайна</a>
-    <a href="#warranty">Брак и Гарантия</a>
-    <a href="#motivation">Мотивация и ЗП</a>
-    <a href="#inspection">Проверки</a>
+    <a href="#tg"><i class="fa-brands fa-telegram"></i> Учебник</a>
+    <a href="#schedule"><i class="fa-solid fa-calendar-day"></i> График НГ</a>
+    <a href="#rules"><i class="fa-solid fa-clipboard-check"></i> Правила работы</a>
+    <a href="#sales"><i class="fa-solid fa-chart-line"></i> Продажи</a>
+    <a href="#money"><i class="fa-solid fa-credit-card"></i> Эквайринг</a>
+    <a href="#secret"><i class="fa-solid fa-user-secret"></i> Коммерческая тайна</a>
+    <a href="#checks"><i class="fa-solid fa-receipt"></i> Чеки и Штрафы</a>
+    <a href="#warranty"><i class="fa-solid fa-tools"></i> Брак и Гарантия</a>
+    <a href="#safety"><i class="fa-solid fa-shield-halved"></i> Проверки</a>
+    <a href="#inventory"><i class="fa-solid fa-boxes-stacked"></i> Инвентаризация</a>
 </nav>
 
 <main>
-    <div class="card" id="tg">
-        <h2>Учебник в Telegram</h2>
-        <p>Используйте наш официальный канал для обучения:</p>
-        <a href="https://t.me/+telgP_f1YNQ1YWZi" class="btn" target="_blank">Перейти в Telegram</a> 
+    <div class="header-banner">
+        <h1>База знаний сотрудника LVS</h1>
+        <p>Актуальные регламенты, графики и стандарты обслуживания на 2024-2025 гг.</p>
     </div>
 
-    <div class="card" id="ny">
-        <h2>🎄 График работы на праздники</h2>
+    <section id="tg" class="card">
+        <h2><i class="fa-brands fa-telegram"></i> Обучающие материалы</h2>
+        <p>Все видео-уроки и дополнительные инструкции доступны в закрытом Telegram-канале:</p>
+        <a href="https://t.me/+telgP_f1YNQ1YWZi" class="tg-button" target="_blank">
+            <i class="fa-brands fa-telegram" style="margin-right:10px"></i> Открыть учебник
+        </a>
+    </section>
+
+    <section id="schedule" class="card">
+        <h2><i class="fa-solid fa-calendar-day"></i> График работы 31 декабря и 1 января</h2>
+        <div class="schedule-grid">
+            <div class="schedule-item"><strong>Реутов / Метрополис:</strong> 31.12 до 20:00, 01.01 с 12:00 [cite: 1, 2, 3, 4]</div>
+            <div class="schedule-item"><strong>Краснодар / Новороссийск (Мира) / Трудобелики:</strong> 31.12 до 20:00, 01.01 с 11:00 [cite: 2, 5, 6]</div>
+            <div class="schedule-item"><strong>Котельники / Медведково:</strong> 31.12 до 20:00. 01.01 — ВЫХОДНОЙ [cite: 4, 5]</div>
+            <div class="schedule-item"><strong>Новороссийск (Лента):</strong> 31.12 по графику Фейерверков, 01.01 с 11:00 [cite: 7, 8]</div>
+        </div>
+    </section>
+
+    <section id="rules" class="card">
+        <h2><i class="fa-solid fa-clipboard-check"></i> Правила работы на точке</h2>
         <ul>
-            <li><strong>Реутов, Метрополис:</strong> 31 декабря до 20:00, 1 января с 12:00[cite: 2, 4].</li>
-            <li><strong>Краснодар, Новороссийск (Мира), Трудобелики, Лента:</strong> 31 декабря до 20:00, 1 января с 11:00[cite: 2, 6, 7, 8].</li>
-            <li><strong>Котельники, Медведково:</strong> 31 декабря до 20:00, 1 января — выходной[cite: 4, 5].</li>
+            <li>Приход за 10-15 минут до открытия. Отправка чека открытия в локальный чат обязательна[cite: 9].</li>
+            <li>Каждые два часа — обход витрин. Устранение "дыр" в выкладке и контроль чистоты[cite: 10, 11].</li>
+            <li>Нет покупателей — не сидим в телефоне. Вы должны быть видимы на рабочем месте[cite: 12, 13].</li>
+            <li>При общении с клиентом наушники снимаем. Накладные наушники запрещены[cite: 14].</li>
+            <li>Используйте открытые вопросы: "Какой товар вас интересует?" вместо "Подсказать что-нибудь?"[cite: 15, 16].</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="card" id="rules">
-        <h2>📋 Основные правила</h2>
+    <section id="sales" class="card">
+        <h2><i class="fa-solid fa-chart-line"></i> Средний чек и сервис</h2>
+        <p>Предлагайте аналог, если товара нет в наличии. Узнавайте вкус, крепость и предпочтения клиента[cite: 18, 19].</p>
         <ul>
-            <li>Приход за 10-15 минут до открытия, отправка чека открытия в чат[cite: 9].</li>
-            <li>Каждые 2 часа — проверка чистоты и выкладки[cite: 10].</li>
-            <li>Нет покупателей — не сидим в телефоне, будьте видны на месте[cite: 12, 13].</li>
-            <li>При общении снимайте наушники (накладные запрещены)[cite: 14].</li>
-            <li>Задавайте открытые вопросы (например: «Какой товар вас интересует?»)[cite: 16].</li>
+            <li>Предлагайте взять несколько одноразок сразу[cite: 20].</li>
+            <li>При продаже устройства — сразу предлагайте жидкости и расходники (испарители/картриджи)[cite: 20, 22].</li>
+            <li>Напоминайте: каждую новую жидкость лучше начинать с новым испарителем для чистоты вкуса[cite: 22, 23].</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="card" id="money">
-        <h2>💰 Эквайринг и деньги</h2>
-        <p>За транзакции по картам мы платим % банку, поэтому наличные в приоритете[cite: 24].</p>
-        <p>Следите за разменом в кассе, не храните его крупными купюрами[cite: 27].</p>
-    </div>
-
-    <div class="card" id="checks">
-        <h2>🧾 Чеки и Ответственность</h2>
-        <div class="warning">Товар отдан без чека — штраф 1000 рублей[cite: 34].</div>
+    <section id="money" class="card">
+        <h2><i class="fa-solid fa-credit-card"></i> Эквайринг и финансы</h2>
+        <p>За каждую транзакцию картой мы платим комиссию банку. Наличные — в приоритете[cite: 23, 24].</p>
         <ul>
-            <li>Чек печатаем ВСЕГДА и отдаем в руки[cite: 31].</li>
-            <li>Опоздание: 50 руб./минута[cite: 49].</li>
-            <li>Невыход без предупреждения (до 15:00 накануне): штраф 5000 руб[cite: 50, 52].</li>
+            <li>При переводе на карту — в конце дня передайте наличные Ивану (своей картой пробивать не нужно)[cite: 25].</li>
+            <li>Деньги на сдачу не храните крупными купюрами. Меняйте их заранее, чтобы утром был размен[cite: 26, 27].</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="card" id="secret">
-        <h2>🤫 Коммерческая тайна</h2>
-        <p>Никому не сообщайте данные о кассах и оборотах. Это защищает нас от повышения аренды или выселения из ТЦ[cite: 28, 29, 30].</p>
-    </div>
+    <section id="secret" class="card">
+        <h2><i class="fa-solid fa-user-secret"></i> Коммерческая тайна</h2>
+        <p>Никому (поставщикам, представителям брендов) не разглашайте данные о кассах и оборотах. Это может привести к повышению аренды или выселению из ТЦ[cite: 27, 28, 29, 30].</p>
+    </section>
 
-    <div class="card" id="warranty">
-        <h2>🛠 Брак и Гарантия</h2>
+    <section id="checks" class="card">
+        <h2><i class="fa-solid fa-receipt"></i> Чеки и дисциплина</h2>
+        <div class="warning-box">
+            Штраф за передачу товара без чека (контроль по камере) — 1000 рублей[cite: 34].
+        </div>
         <ul>
-            <li>Жидкости и расходники возврату не подлежат[cite: 37].</li>
-            <li>На поды гарантия — 1 неделя[cite: 40].</li>
-            <li>В упаковку с браком кладите бумажку: причина, дата, ФИО[cite: 43].</li>
+            <li>Чек печатаем ВСЕГДА (даже за перевод на карту) и отдаем клиенту в руки[cite: 30, 31, 32].</li>
+            <li>Следите за запасом кассовой ленты. Если заканчивается — пишите Андрею заранее[cite: 34, 35].</li>
+            <li>Опоздание: 50 руб./минута[cite: 48].</li>
+            <li>Невыход без предупреждения (нужно сообщить до 15:00 накануне) — штраф 5000 руб[cite: 49, 51].</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="card" id="motivation">
-        <h2>📈 Мотивация</h2>
-        <p>Процент начисляется при продажах от 30 000 руб. на точку[cite: 44]. Вы материально ответственны за товар и деньги[cite: 60].</p>
-    </div>
+    <section id="warranty" class="card">
+        <h2><i class="fa-solid fa-tools"></i> Брак и Гарантия</h2>
+        <ul>
+            <li>Жидкости и расходники обмену и возврату не подлежат[cite: 36].</li>
+            <li>На под-системы (устройства) действует гарантия 1 неделя[cite: 39].</li>
+            <li>При приеме брака обязательно вкладывайте бумажку: причина, дата приема, ваше ФИО[cite: 42].</li>
+        </ul>
+    </section>
 
-    <div class="card" id="inspection">
-        <h2>⚠️ Пришла проверка?</h2>
-        <p>Не паникуйте. Уточните, кто пришел, попросите разрешения позвонить собственнику (Ивану) и передайте ему трубку[cite: 54, 57, 58].</p>
-    </div>
+    <section id="motivation" class="card">
+        <h2><i class="fa-solid fa-money-bill-wave"></i> Мотивация</h2>
+        <p>Процент к выплате начисляется только при сумме продаж свыше 30 000 рублей на точку[cite: 43, 44]. Вы материально ответственны за товар и деньги[cite: 59].</p>
+        <p><em>Об увольнении сообщайте минимум за 2 недели, а лучше — за месяц[cite: 60].</em></p>
+    </section>
+
+    <section id="safety" class="card">
+        <h2><i class="fa-solid fa-shield-halved"></i> Важное: Если пришла проверка</h2>
+        <p>Не паникуйте. Вы не нарушаете закон[cite: 53, 54]. Уточните ведомство (Роспотребнадзор, МВД, УБЭП) и попросите разрешения позвонить собственнику Ивану, чтобы передать ему трубку[cite: 55, 56, 57].</p>
+    </section>
+
+    <section id="inventory" class="card">
+        <h2><i class="fa-solid fa-boxes-stacked"></i> Инвентаризация</h2>
+        <p>Ежедневный пересчет — это безопасность точки и контроль наличия товара по вкусам[cite: 61, 62, 63]. Новым сотрудникам рекомендуется пересчитать весь товар в первый же день[cite: 58].</p>
+    </section>
 </main>
 
 </body>
