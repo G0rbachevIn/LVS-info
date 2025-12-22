@@ -23,7 +23,7 @@
             background-color: var(--bg);
         }
 
-        /* Sidebar */
+        /* Навигация */
         nav {
             width: 260px;
             background-color: var(--sidebar);
@@ -41,7 +41,6 @@
             color: var(--accent);
             text-align: center;
             margin-bottom: 50px;
-            cursor: pointer;
         }
 
         .menu-item {
@@ -67,14 +66,14 @@
             border-radius: 4px;
             margin-top: auto;
             justify-content: center;
-            text-decoration: none;
         }
 
-        /* Content Area */
+        /* Контентная область */
         main {
             flex-grow: 1;
             padding: 60px;
             overflow-y: auto;
+            position: relative;
         }
 
         .content-section {
@@ -91,10 +90,25 @@
 
         h1 { font-weight: 300; font-size: 28px; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 30px; }
         
-        .placeholder-text {
-            color: #999;
-            font-style: italic;
+        .info-card {
+            line-height: 1.8;
+            font-size: 15px;
+            color: #444;
         }
+
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 20px; padding-left: 25px; position: relative; }
+        li::before { content: ""; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--accent); }
+
+        .warning-text {
+            color: #d63031;
+            border-left: 3px solid #d63031;
+            padding-left: 15px;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        .schedule-list strong { color: var(--primary); display: inline-block; width: 200px; }
 
         @media (max-width: 768px) {
             body { flex-direction: column; }
@@ -106,28 +120,71 @@
 <body>
 
 <nav>
-    <h2 onclick="showSection('home')">LVS</h2>
-    
-    <div class="menu-item active" onclick="showSection('home')">
-        <i class="fa-solid fa-house"></i> Главная
-    </div>
-
-    <div id="dynamic-menu">
-        </div>
+    <h2>LVS</h2>
+    <div class="menu-item active" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Главная</div>
+    <div class="menu-item" onclick="showSection('schedule')"><i class="fa-solid fa-clock"></i> График работы</div>
+    <div class="menu-item" onclick="showSection('rules')"><i class="fa-solid fa-file-contract"></i> Регламент</div>
+    <div class="menu-item" onclick="showSection('finance')"><i class="fa-solid fa-cash-register"></i> Финансы</div>
+    <div class="menu-item" onclick="showSection('safety')"><i class="fa-solid fa-shield-halved"></i> Проверки</div>
     
     <a href="https://t.me/+telgP_f1YNQ1YWZi" target="_blank" class="menu-item btn-tg">
-        <i class="fa-brands fa-telegram"></i> Учебник в Telegram
+        <i class="fa-brands fa-telegram"></i> Учебник
     </a>
 </nav>
 
 <main>
     <section id="home" class="content-section active">
-        <h1>Система управления знаниями</h1>
-        <p>Добро пожаловать в базу знаний LVS. Выберите раздел в меню для начала работы.</p>
+        <h1>Добро пожаловать</h1>
+        <p class="info-card">Выберите нужный раздел в меню слева для получения информации. Данный портал является официальным источником регламентов компании LVS.</p>
     </section>
 
-    <div id="dynamic-content">
-    </div>
+    <section id="schedule" class="content-section">
+        <h1>График работы (Праздники)</h1>
+        <div class="info-card schedule-list">
+            <ul>
+                <li><strong>Реутов / Метрополис:</strong> 31.12 до 20:00, 01.01 с 12:00[cite: 2, 3, 4].</li>
+                <li><strong>Краснодар / Новороссийск:</strong> 31.12 до 20:00, 01.01 с 11:00[cite: 2, 5, 7].</li>
+                <li><strong>Трудобелики / Лента:</strong> 31.12 до 20:00, 01.01 с 11:00[cite: 6, 8].</li>
+                <li><strong>Котельники / Медведково:</strong> 31.12 до 20:00. 01.01 — ВЫХОДНОЙ[cite: 4, 5].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="rules" class="content-section">
+        <h1>Общий регламент</h1>
+        <div class="info-card">
+            <ul>
+                <li>Прибытие на точку за 15 минут до открытия. Отправка чека открытия в чат[cite: 9].</li>
+                <li>Контроль выкладки и чистоты каждые 2 часа.</li>
+                <li>Запрещено использование накладных наушников на рабочем месте[cite: 14].</li>
+                <li>Общение с клиентом строится на вопросах открытого типа[cite: 15, 16].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="finance" class="content-section">
+        <h1>Финансовая дисциплина</h1>
+        <div class="warning-text">Передача товара без чека (контроль по камерам) влечет штраф 1000 рублей[cite: 31, 34].</div>
+        <div class="info-card">
+            <ul>
+                <li>Выдача бумажного чека обязательна для каждой продажи[cite: 32].</li>
+                <li>Опоздание на смену: 50 рублей за каждую минуту[cite: 49].</li>
+                <li>Процент к выплате начисляется при выручке свыше 30 000 рублей на точку[cite: 44].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="safety" class="content-section">
+        <h1>Действия при проверке</h1>
+        <div class="info-card">
+            <p>При визите Роспотребнадзора или МВД[cite: 55, 56]:</p>
+            <ul>
+                <li>Запросите разрешение на звонок собственнику[cite: 57].</li>
+                <li>Свяжитесь с Иваном и передайте ему трубку для переговоров[cite: 58].</li>
+                <li>Сотрудник не несет личной ответственности за действия проверяющих органов[cite: 54, 55].</li>
+            </ul>
+        </div>
+    </section>
 </main>
 
 <script>
@@ -141,10 +198,9 @@
         menuItems.forEach(i => i.classList.remove('active'));
 
         // Показываем нужную секцию
-        const target = document.getElementById(sectionId);
-        if(target) target.classList.add('active');
+        document.getElementById(sectionId).classList.add('active');
 
-        // Подсвечиваем активный пункт в меню
+        // Подсвечиваем активный пункт меню
         event.currentTarget.classList.add('active');
     }
 </script>
