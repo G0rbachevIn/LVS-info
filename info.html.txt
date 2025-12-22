@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Важная информация</title>
+    <style>
+        body { background: #f2f4f6; font-family: -apple-system, sans-serif; margin: 0; display: flex; justify-content: center; color: #333; }
+        .container { width: 100%; max-width: 500px; padding: 20px; box-sizing: border-box; }
+        h1 { text-align: center; font-size: 24px; color: #2c3e50; margin-bottom: 30px; }
+        
+        /* Стили раскрывающихся блоков */
+        details {
+            background: white;
+            margin-bottom: 12px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            overflow: hidden;
+        }
+        summary {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            outline: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after {
+            content: "→";
+            color: #999;
+            transition: transform 0.2s;
+        }
+        details[open] summary::after {
+            transform: rotate(90deg);
+        }
+        
+        .content {
+            padding: 0 20px 20px 20px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #444;
+            border-top: 1px solid #f9f9f9;
+        }
+        .content p { margin: 12px 0; }
+        .important { 
+            color: #d32f2f; 
+            font-weight: 600; 
+            background: #fff5f5; 
+            padding: 10px; 
+            border-radius: 8px; 
+            border-left: 4px solid #d32f2f;
+        }
+        .back { display: block; text-align: center; margin-top: 30px; color: #999; text-decoration: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Важная информация</h1>
+
+        <details>
+            <summary>Про средний чек</summary>
+            <div class="content">
+                <p>• Увеличивайте средний чек. Предлагайте взять несколько одноразок сразу.</p>
+                <p>• Предлагайте что-то подороже и качественнее.</p>
+                <p>• Продаете жижу — предлагайте расходники (испарители, картриджи).</p>
+                <p>• Если у покупателя старый под, предложите новую модель поинтереснее.</p>
+                <p>• Каждую новую жижу лучше начинать с новым картриджем/испариком.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Про эквайринг</summary>
+            <div class="content">
+                <p>За каждую транзакцию мы платим % банку. Если предлагают наличку — <strong>не отказывайтесь</strong>.</p>
+                <p>Если перевели на карту — не пробивайте своей картой. В конце дня просто передайте нал.</p>
+                <p>Следите за разменными деньгами. Меняйте крупные купюры заранее, чтобы утром была сдача.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Про коммерческую тайну</summary>
+            <div class="content">
+                <p class="important">Никому не говорите дневные кассы, чеки и обороты!</p>
+                <p>Даже если это представители Soak, HQD или поставщики. Отвечайте: "Это коммерческая тайна, за разглашение — штраф".</p>
+                <p>Конкуренты ищут почву, чтобы перекупить наше место в ТЦ, предложив аренду выше. Это прямая угроза вашей работе.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Про чеки</summary>
+            <div class="content">
+                <p>• Всегда печатаем бумажный чек и отдаем в руки (даже если покупателю он не нужен).</p>
+                <p>• Не важно: наличка или перевод — <strong>чек печатаем всегда</strong>.</p>
+                <div class="important">Штраф за товар без чека (по камере) — 1000 руб.</div>
+                <p>Следите за кассовой лентой. Если мало — пишите Андрею заранее.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Брак</summary>
+            <div class="content">
+                <p>• Жижи и расходники обмену и возврату <strong>не подлежат</strong>.</p>
+                <p>• Одноразки проверяем при покупке.</p>
+                <p>• Гарантия на поды — 1 неделя. Перед приемом проверьте: не залит ли он, не разряжен ли, нет ли повреждений.</p>
+                <p>• При приеме брака вложите записку: причина, дата, ваше ФИО.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Мотивация и штрафы</summary>
+            <div class="content">
+                <p><strong>Зарплата:</strong> Процент начисляется при продажах от 30 000 руб. Если меньше — только оклад.</p>
+                <p><strong>Штрафы ТЦ:</strong> Курение — 5000 руб. Неоткрытие вовремя — 5000 руб. Долгие перерывы — 5000 руб.</p>
+                <p><strong>Опоздание:</strong> 50 руб / 1 минута. Поблажек за пробки нет.</p>
+                <p class="important">Невыход без предупреждения (или позже 15:00 накануне) — штраф 5000 руб.</p>
+            </div>
+        </details>
+
+        <a href="index.html" class="back">← Вернуться в меню</a>
+    </div>
+</body>
+</html>
