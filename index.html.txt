@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LVS-info | База знаний</title>
+    <style>
+        :root { --primary: #1a1a1a; --accent: #d4a017; --bg: #f4f4f4; --text: #333; }
+        body { font-family: sans-serif; margin: 0; display: flex; background: var(--bg); color: var(--text); }
+        nav { width: 280px; background: var(--primary); height: 100vh; position: fixed; color: white; padding: 20px; overflow-y: auto; box-sizing: border-box; }
+        nav h2 { color: var(--accent); margin-bottom: 20px; border-bottom: 1px solid var(--accent); padding-bottom: 10px; }
+        nav a { display: block; color: #ccc; text-decoration: none; padding: 10px 0; border-bottom: 1px solid #333; font-size: 14px; }
+        nav a:hover { color: white; }
+        main { margin-left: 280px; padding: 40px; width: 100%; max-width: 800px; }
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 25px; line-height: 1.6; }
+        h2 { color: var(--primary); border-left: 4px solid var(--accent); padding-left: 15px; margin-top: 0; }
+        .warning { background: #fff5f5; border: 1px solid #feb2b2; padding: 15px; border-radius: 5px; color: #c53030; font-weight: bold; }
+        .btn { display: inline-block; background: #2481cc; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 10px; }
+        @media (max-width: 768px) { body { flex-direction: column; } nav { width: 100%; height: auto; position: relative; } main { margin-left: 0; padding: 20px; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <h2>LVS INFO</h2>
+    <a href="#tg">Учебник в Telegram</a>
+    <a href="#ny">График на праздники</a>
+    <a href="#rules">Правила работы</a>
+    <a href="#check">Средний чек</a>
+    <a href="#finance">Эквайринг и Нал</a>
+    <a href="#secret">Коммерческая тайна</a>
+    <a href="#receipts">Про чеки и Штрафы</a>
+    <a href="#warranty">Брак и Гарантия</a>
+    <a href="#motivation">Мотивация и ЗП</a>
+    <a href="#inspection">Проверки</a>
+</nav>
+
+<main>
+    <div class="card" id="tg">
+        <h2>Учебник в Telegram</h2>
+        <p>Для обучения используйте наш официальный канал:</p>
+        [cite_start]<a href="https://t.me/+telgP_f1YNQ1YWZi" class="btn" target="_blank">Перейти в Telegram</a> [cite: 1]
+    </div>
+
+    <div class="card" id="ny">
+        <h2>🎄 График 31 дек и 1 янв</h2>
+        <ul>
+            [cite_start]<li><strong>Реутов, Метрополис, Котельники, Медведково, Новороссийск, Краснодар:</strong> 31 декабря до 20:00[cite: 2, 4, 5, 6].</li>
+            [cite_start]<li><strong>1 января:</strong> Реутов и Метрополис (с 12:00) [cite: 2, 4][cite_start], Краснодар, Новороссийск, Трудобелики, Лента (с 11:00)[cite: 2, 6, 7, 8].</li>
+            [cite_start]<li><strong>1 января выходной:</strong> Котельники и Медведково[cite: 5].</li>
+        </ul>
+    </div>
+
+    <div class="card" id="rules">
+        <h2>📋 Основные правила</h2>
+        <ul>
+            <li>Приход за 10-15 мин. [cite_start]Скидываем чек открытия в чат[cite: 9].</li>
+            [cite_start]<li>Каждые 2 часа обход витрин, устранение «дыр» в выкладке[cite: 10, 11].</li>
+            [cite_start]<li>Нет покупателей — не сидим в телефоне, стоим так, чтобы вас было видно[cite: 12, 13].</li>
+            [cite_start]<li>При общении снимаем наушники (большие накладные запрещены)[cite: 14].</li>
+            <li>Используйте открытые вопросы: «Какой товар вас интересует?» [cite_start]вместо «Подсказать?»[cite: 16].</li>
+        </ul>
+    </div>
+
+    <div class="card" id="finance">
+        <h2>💳 Эквайринг и деньги</h2>
+        <p>За безнал мы платим % банку. [cite_start]Предлагают наличку — берите[cite: 24, 25].</p>
+        [cite_start]<p>Сдачу в кассе меняйте заранее, чтобы утром не было проблем[cite: 27].</p>
+    </div>
+
+    <div class="card" id="receipts">
+        <h2>🧾 Чеки и Штрафы</h2>
+        [cite_start]<div class="warning">Отдали товар без чека (вижу в камеру) — штраф 1000 руб. [cite: 34]</div>
+        <ul>
+            [cite_start]<li>Чек печатаем ВСЕГДА (нал, перевод, карта) и отдаем в руки[cite: 31, 33].</li>
+            [cite_start]<li>Опоздание: 50 руб./минута[cite: 49].</li>
+            [cite_start]<li>Невыход без предупреждения (до 15:00 накануне): 5000 руб.[cite: 50, 52].</li>
+        </ul>
+    </div>
+
+    <div class="card" id="secret">
+        <h2>🤫 Коммерческая тайна</h2>
+        <p>Никому (поставщикам, конкурентам) не говорим кассы и обороты. [cite_start]Ответ один: «Это коммерческая тайна, меня оштрафуют»[cite: 28, 29]. [cite_start]Это защищает нас от поднятия аренды или выселения из ТЦ[cite: 30].</p>
+    </div>
+
+    <div class="card" id="warranty">
+        <h2>🛠 Брак</h2>
+        <ul>
+            [cite_start]<li>Жижи и расходники возврату не подлежат[cite: 37].</li>
+            [cite_start]<li>Гарантия на поды — 1 неделя[cite: 40].</li>
+            [cite_start]<li>В брак кладем бумажку: Причина, Дата, ФИО продавца[cite: 43].</li>
+        </ul>
+    </div>
+
+    <div class="card" id="motivation">
+        <h2>📈 Мотивация</h2>
+        <p>Порог для процента — 30 000 руб. [cite_start]на точку[cite: 44]. [cite_start]Меньше 30к — только оклад[cite: 45].</p>
+        [cite_start]<p>Помните: вы материально ответственны за товар и деньги[cite: 60].</p>
+    </div>
+
+    <div class="card" id="inspection">
+        <h2>⚠️ Проверки</h2>
+        <p>Если пришла проверка: не паникуйте. Спросите, кто это, и попросите разрешения позвонить Ивану (собственнику). [cite_start]Передайте ему трубку[cite: 54, 57, 58].</p>
+    </div>
+</main>
+
+</body>
+</html>
