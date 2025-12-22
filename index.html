@@ -9,116 +9,111 @@
         :root {
             --primary: #1a1a1a;
             --accent: #d4a017;
-            --bg: #fdfdfd;
+            --bg: #ffffff;
             --text: #333;
-            --border: #e0e0e0;
+            --sidebar: #111;
         }
 
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             display: flex;
+            height: 100vh;
+            overflow: hidden;
             background-color: var(--bg);
-            color: var(--text);
         }
 
-        /* Sidebar */
+        /* Навигация */
         nav {
             width: 260px;
-            background-color: var(--primary);
-            height: 100vh;
-            position: fixed;
+            background-color: var(--sidebar);
             color: white;
-            padding: 30px 20px;
-            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px;
             box-sizing: border-box;
+            border-right: 1px solid #222;
         }
 
         nav h2 {
-            font-size: 24px;
             font-weight: 300;
-            letter-spacing: 3px;
+            letter-spacing: 5px;
             color: var(--accent);
-            margin-bottom: 40px;
             text-align: center;
+            margin-bottom: 50px;
         }
 
-        nav a {
-            display: flex;
-            align-items: center;
-            color: #999;
+        .menu-item {
+            color: #888;
             text-decoration: none;
-            padding: 12px 10px;
+            padding: 15px;
             margin-bottom: 5px;
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: 0.2s;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
         }
 
-        nav a:hover { color: white; }
+        .menu-item i { margin-right: 15px; width: 20px; text-align: center; }
+        .menu-item:hover, .menu-item.active { color: white; background: #1a1a1a; }
 
-        .nav-tg {
+        .btn-tg {
             background-color: #2481cc;
             color: white !important;
             border-radius: 4px;
+            margin-top: auto;
             justify-content: center;
-            margin-top: 20px;
         }
 
-        /* Main Content */
+        /* Контентная область */
         main {
-            margin-left: 260px;
+            flex-grow: 1;
             padding: 60px;
-            width: 100%;
-            max-width: 800px;
+            overflow-y: auto;
+            position: relative;
         }
 
-        h1 { font-weight: 300; font-size: 32px; margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
-        
-        .section { margin-bottom: 50px; }
-        
-        h2 { font-size: 18px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; display: flex; align-items: center; }
-        h2 i { margin-right: 15px; color: var(--accent); }
-
-        /* Accordion для графика */
-        .accordion-header {
-            background: white;
-            border: 1px solid var(--border);
-            padding: 15px 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-        .accordion-header:hover { border-color: var(--accent); }
-        .accordion-content {
+        .content-section {
             display: none;
-            padding: 20px;
-            background: #f9f9f9;
-            border: 1px solid var(--border);
-            border-top: none;
+            animation: fadeIn 0.4s ease;
         }
 
-        ul { padding-left: 0; list-style: none; }
-        li { margin-bottom: 15px; padding-left: 20px; position: relative; line-height: 1.6; }
-        li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 1px; background: var(--accent); }
+        .content-section.active { display: block; }
 
-        .warning {
-            border: 1px solid #ff7675;
-            padding: 20px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { font-weight: 300; font-size: 28px; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 30px; }
+        
+        .info-card {
+            line-height: 1.8;
+            font-size: 15px;
+            color: #444;
+        }
+
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 20px; padding-left: 25px; position: relative; }
+        li::before { content: ""; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--accent); }
+
+        .warning-text {
             color: #d63031;
-            font-size: 14px;
-            background: #fffafa;
-            margin: 20px 0;
+            border-left: 3px solid #d63031;
+            padding-left: 15px;
+            margin: 30px 0;
+            font-weight: bold;
         }
+
+        .schedule-list strong { color: var(--primary); display: inline-block; width: 200px; }
 
         @media (max-width: 768px) {
             body { flex-direction: column; }
-            nav { width: 100%; height: auto; position: relative; }
-            main { margin-left: 0; padding: 30px 20px; }
+            nav { width: 100%; height: auto; padding: 20px; }
+            main { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -126,40 +121,89 @@
 
 <nav>
     <h2>LVS</h2>
-    <a href="#schedule"><i class="fa-solid fa-clock"></i> График работы</a>
-    <a href="#rules"><i class="fa-solid fa-list-check"></i> Регламент</a>
-    <a href="#sales"><i class="fa-solid fa-cart-shopping"></i> Продажи</a>
-    <a href="#finance"><i class="fa-solid fa-wallet"></i> Финансы</a>
-    <a href="#legal"><i class="fa-solid fa-shield"></i> Безопасность</a>
-    <a href="#inventory"><i class="fa-solid fa-box-archive"></i> Склад</a>
+    <div class="menu-item active" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Главная</div>
+    <div class="menu-item" onclick="showSection('schedule')"><i class="fa-solid fa-clock"></i> График работы</div>
+    <div class="menu-item" onclick="showSection('rules')"><i class="fa-solid fa-file-contract"></i> Регламент</div>
+    <div class="menu-item" onclick="showSection('finance')"><i class="fa-solid fa-cash-register"></i> Финансы</div>
+    <div class="menu-item" onclick="showSection('safety')"><i class="fa-solid fa-shield-halved"></i> Проверки</div>
     
-    <a href="https://t.me/+telgP_f1YNQ1YWZi" target="_blank" class="nav-tg">
+    <a href="https://t.me/+telgP_f1YNQ1YWZi" target="_blank" class="menu-item btn-tg">
         <i class="fa-brands fa-telegram"></i> Учебник
     </a>
 </nav>
 
 <main>
-    <h1>База знаний LVS</h1>
+    <section id="home" class="content-section active">
+        <h1>Добро пожаловать</h1>
+        <p class="info-card">Выберите нужный раздел в меню слева для получения информации. Данный портал является официальным источником регламентов компании LVS.</p>
+    </section>
 
-    <div class="section">
-        <div class="accordion-header" onclick="toggleAccordion()">
-            <span><i class="fa-solid fa-calendar-days"></i> График работы в праздничные дни</span>
-            <i class="fa-solid fa-chevron-down" id="acc-icon"></i>
-        </div>
-        <div class="accordion-content" id="acc-content">
+    <section id="schedule" class="content-section">
+        <h1>График работы (Праздники)</h1>
+        <div class="info-card schedule-list">
             <ul>
-                <li><strong>Реутов, Метрополис:</strong> 31 декабря до 20:00, 1 января с 12:00.</li>
-                <li><strong>Краснодар, Новороссийск (Мира), Трудобелики:</strong> 31 декабря до 20:00, 1 января с 11:00.</li>
-                <li><strong>Котельники, Медведково:</strong> 31 декабря до 20:00, 1 января — выходной.</li>
-                <li><strong>Новороссийск (Лента):</strong> 31 декабря по графику Фейерверков, 1 января с 11:00.</li>
+                <li><strong>Реутов / Метрополис:</strong> 31.12 до 20:00, 01.01 с 12:00[cite: 2, 3, 4].</li>
+                <li><strong>Краснодар / Новороссийск:</strong> 31.12 до 20:00, 01.01 с 11:00[cite: 2, 5, 7].</li>
+                <li><strong>Трудобелики / Лента:</strong> 31.12 до 20:00, 01.01 с 11:00[cite: 6, 8].</li>
+                <li><strong>Котельники / Медведково:</strong> 31.12 до 20:00. 01.01 — ВЫХОДНОЙ[cite: 4, 5].</li>
             </ul>
         </div>
-    </div>
+    </section>
 
-    <div class="section" id="rules">
-        <h2><i class="fa-solid fa-file-lines"></i> Общие правила</h2>
-        <ul>
-            <li>Прибытие на точку за 15 минут до открытия. Отправка фотоотчета (чек открытия) в чат.</li>
-            <li>Контроль выкладки каждые 120 минут. Пустые места на витринах недопустимы.</li>
-            <li>Соблюдение дисциплины: запрещено использование накладных наушников и чрезмерное использование телефона.</li>
-            <li>Использование открытых вопросов при общении с клиентом
+    <section id="rules" class="content-section">
+        <h1>Общий регламент</h1>
+        <div class="info-card">
+            <ul>
+                <li>Прибытие на точку за 15 минут до открытия. Отправка чека открытия в чат[cite: 9].</li>
+                <li>Контроль выкладки и чистоты каждые 2 часа.</li>
+                <li>Запрещено использование накладных наушников на рабочем месте[cite: 14].</li>
+                <li>Общение с клиентом строится на вопросах открытого типа[cite: 15, 16].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="finance" class="content-section">
+        <h1>Финансовая дисциплина</h1>
+        <div class="warning-text">Передача товара без чека (контроль по камерам) влечет штраф 1000 рублей[cite: 31, 34].</div>
+        <div class="info-card">
+            <ul>
+                <li>Выдача бумажного чека обязательна для каждой продажи[cite: 32].</li>
+                <li>Опоздание на смену: 50 рублей за каждую минуту[cite: 49].</li>
+                <li>Процент к выплате начисляется при выручке свыше 30 000 рублей на точку[cite: 44].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="safety" class="content-section">
+        <h1>Действия при проверке</h1>
+        <div class="info-card">
+            <p>При визите Роспотребнадзора или МВД[cite: 55, 56]:</p>
+            <ul>
+                <li>Запросите разрешение на звонок собственнику[cite: 57].</li>
+                <li>Свяжитесь с Иваном и передайте ему трубку для переговоров[cite: 58].</li>
+                <li>Сотрудник не несет личной ответственности за действия проверяющих органов[cite: 54, 55].</li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<script>
+    function showSection(sectionId) {
+        // Скрываем все секции
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(s => s.classList.remove('active'));
+
+        // Убираем активный класс у кнопок меню
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(i => i.classList.remove('active'));
+
+        // Показываем нужную секцию
+        document.getElementById(sectionId).classList.add('active');
+
+        // Подсвечиваем активный пункт меню
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
