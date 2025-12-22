@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="content-card">
+            <h1>Контакты</h1>
+            
+            <div class="contact-block">
+                <div class="contact-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/VTB_Logo_2018.png" alt="ВТБ" class="brand-logo">
+                    <div class="contact-info">
+                        <h2>Техническая поддержка терминалов ВТБ</h2>
+                        <a href="tel:88007000970" class="phone-link">8 800 700 09 70</a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="inn-section">
+                <h3>Реквизиты ИНН (ИП)</h3>
+                <div class="inn-list">
+                    <div class="inn-item">
+                        <span class="name">Рыжикова Е.М.</span>
+                        <span class="number">500 404 606 489</span>
+                    </div>
+                    <div class="inn-item">
+                        <span class="name">Горбачев Д.Н.</span>
+                        <span class="number">500 406 820 551</span>
+                    </div>
+                    <div class="inn-item">
+                        <span class="name">Эрмиди А.</span>
+                        <span class="number">503 240 520 250</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="contact-block">
+                <div class="contact-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/MTS_logo_2019.png" alt="МТС" class="brand-logo">
+                    <div class="contact-info">
+                        <h2>Техническая поддержка МТС Кассы (LiteBox)</h2>
+                        <a href="tel:88002509990" class="phone-link">8 800 250 99 90</a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-link">← Вернуться в меню</a>
+        </div>
+    </div>
+
+</body>
+</html>
