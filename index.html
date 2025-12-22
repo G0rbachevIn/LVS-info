@@ -1,153 +1,117 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LVS | База знаний</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #1a1a1a;
-            --accent: #d4a017;
-            --bg: #ffffff;
-            --text: #333;
-            --sidebar: #111;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-            background-color: var(--bg);
-        }
-
-        /* Sidebar */
-        nav {
-            width: 260px;
-            background-color: var(--sidebar);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            padding: 40px 20px;
-            box-sizing: border-box;
-            border-right: 1px solid #222;
-        }
-
-        nav h2 {
-            font-weight: 300;
-            letter-spacing: 5px;
-            color: var(--accent);
-            text-align: center;
-            margin-bottom: 50px;
-            cursor: pointer;
-        }
-
-        .menu-item {
-            color: #888;
-            text-decoration: none;
-            padding: 15px;
-            margin-bottom: 5px;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-        }
-
-        .menu-item i { margin-right: 15px; width: 20px; text-align: center; }
-        .menu-item:hover, .menu-item.active { color: white; background: #1a1a1a; }
-
-        .btn-tg {
-            background-color: #2481cc;
-            color: white !important;
-            border-radius: 4px;
-            margin-top: auto;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        /* Content Area */
-        main {
-            flex-grow: 1;
-            padding: 60px;
-            overflow-y: auto;
-        }
-
-        .content-section {
-            display: none;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .content-section.active { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 { font-weight: 300; font-size: 28px; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 30px; }
+<section class="schedule-section">
+    <div class="schedule-container">
+        <h2 class="schedule-title">🎄 График работы в новогодние праздники</h2>
         
-        .placeholder-text {
-            color: #999;
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            body { flex-direction: column; }
-            nav { width: 100%; height: auto; padding: 20px; }
-            main { padding: 30px 20px; }
-        }
-    </style>
-</head>
-<body>
-
-<nav>
-    <h2 onclick="showSection('home')">LVS</h2>
-    
-    <div class="menu-item active" onclick="showSection('home')">
-        <i class="fa-solid fa-house"></i> Главная
-    </div>
-
-    <div id="dynamic-menu">
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Магазин</th>
+                        <th>31 декабря</th>
+                        <th>1 января</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Реутов</td>
+                        <td>до 20:00</td>
+                        <td>с 12:00</td>
+                    </tr>
+                    <tr>
+                        <td>Краснодар</td>
+                        <td>до 20:00</td>
+                        <td>с 11:00</td>
+                    </tr>
+                    <tr>
+                        <td>Европолис</td>
+                        <td class="info-pending" colspan="2">Пока нет информации</td>
+                    </tr>
+                    <tr>
+                        <td>Европолис Вход</td>
+                        <td class="info-pending" colspan="2">Пока нет информации</td>
+                    </tr>
+                    <tr>
+                        <td>Метрополис</td>
+                        <td>до 20:00</td>
+                        <td>с 12:00</td>
+                    </tr>
+                    <tr>
+                        <td>Котельники</td>
+                        <td>до 20:00</td>
+                        <td class="holiday-closed">ВЫХОДНОЙ</td>
+                    </tr>
+                    <tr>
+                        <td>Медведково</td>
+                        <td>до 20:00</td>
+                        <td class="holiday-closed">ВЫХОДНОЙ</td>
+                    </tr>
+                    <tr>
+                        <td>Новороссийск Мира</td>
+                        <td>до 20:00</td>
+                        <td>с 11:00</td>
+                    </tr>
+                    <tr>
+                        <td>Новороссийск Лента</td>
+                        <td>по графику Фейерверков</td>
+                        <td>с 11:00</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    
-    <a href="https://t.me/+telgP_f1YNQ1YWZi" target="_blank" class="menu-item btn-tg">
-        <i class="fa-brands fa-telegram"></i> Учебник в Telegram
-    </a>
-</nav>
-
-<main>
-    <section id="home" class="content-section active">
-        <h1>Система управления знаниями</h1>
-        <p>Добро пожаловать в базу знаний LVS. Выберите раздел в меню для начала работы.</p>
-    </section>
-
-    <div id="dynamic-content">
     </div>
-</main>
+</section>
 
-<script>
-    function showSection(sectionId) {
-        // Скрываем все секции
-        const sections = document.querySelectorAll('.content-section');
-        sections.forEach(s => s.classList.remove('active'));
-
-        // Убираем активный класс у кнопок меню
-        const menuItems = document.querySelectorAll('.menu-item');
-        menuItems.forEach(i => i.classList.remove('active'));
-
-        // Показываем нужную секцию
-        const target = document.getElementById(sectionId);
-        if(target) target.classList.add('active');
-
-        // Подсвечиваем активный пункт в меню
-        event.currentTarget.classList.add('active');
+<style>
+    .schedule-section {
+        padding: 50px 20px;
+        background-color: #ffffff; /* Можно поменять на фон вашего сайта */
+        font-family: 'Segoe UI', Roboto, sans-serif;
     }
-</script>
-
-</body>
-</html>
+    .schedule-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .schedule-title {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 24px;
+    }
+    .table-wrapper {
+        overflow-x: auto; /* Чтобы таблица не ломалась на мобилках */
+    }
+    .schedule-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .schedule-table th {
+        background-color: #2c3e50;
+        color: #ffffff;
+        padding: 15px;
+        text-align: left;
+    }
+    .schedule-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        color: #444;
+    }
+    .schedule-table tr:hover {
+        background-color: #fcfcfc;
+    }
+    /* Красный акцент для выходных */
+    .holiday-closed {
+        color: #d9534f;
+        font-weight: bold;
+        background-color: #fff5f5;
+    }
+    /* Стиль для строк без информации */
+    .info-pending {
+        color: #999;
+        font-style: italic;
+        text-align: center;
+    }
+</style>
