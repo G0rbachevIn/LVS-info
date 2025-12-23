@@ -1,53 +1,85 @@
-.menu-grid { display: flex; flex-direction: column; gap: 12px; }
-        
-        .menu-btn { 
-            display: flex; align-items: center; justify-content: center; 
-            background: white; padding: 22px; border-radius: 12px; 
-            text-decoration: none; color: #1d1d1f; /* Цвет текста Apple */
-            font-weight: 500; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03); 
-            border: 1px solid #eee; 
-            font-size: 16px; 
-            
-            /* Плавность как у Apple (0.3s — золотой стандарт) */
-            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); 
-            position: relative;
-            overflow: hidden;
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информационный портал</title>
+    <style>
+        /* Основные настройки фона и шрифтов в стиле Apple */
+        body { 
+            background-color: #f5f5f7; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Эффект при наведении (Desktop) */
+        .container { 
+            width: 100%; 
+            max-width: 500px; 
+            padding: 40px 20px; 
+            box-sizing: border-box; 
+        }
+
+        h1 { 
+            text-align: center; 
+            color: #1d1d1f; 
+            margin-bottom: 40px; 
+            font-weight: 600; 
+            font-size: 26px; 
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+        
+        .menu-grid { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 14px; 
+        }
+        
+        /* Базовая кнопка */
+        .menu-btn { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: white; 
+            padding: 18px 25px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            color: #1d1d1f; 
+            font-weight: 500; 
+            font-size: 17px; 
+            border: 1px solid rgba(0,0,0,0.05); 
+            
+            /* Плавная анимация Apple */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Эффект наведения (как на сайте Apple) */
         @media (hover: hover) {
             .menu-btn:hover {
-                background-color: #f5f5f7; /* Светло-серый оттенок Apple */
-                border-color: #d2d2d7;
-                transform: translateY(-2px); /* Легкий подъем */
-                box-shadow: 0 8px 15px rgba(0,0,0,0.05);
-            }
-        }
-
-        /* Специальный эффект для Telegram при наведении */
-        @media (hover: hover) {
-            .tg-btn:hover {
-                background-color: #0088cc;
+                background-color: #0071e3; /* Фирменный синий Apple */
                 color: white;
-                border-color: #0088cc;
-            }
-            .tg-btn:hover svg {
-                fill: white; /* Иконка тоже белеет */
+                border-color: #0071e3;
+                transform: scale(1.02); /* Легкое увеличение */
             }
         }
 
-        /* Эффект при нажатии (Mobile) */
+        /* Эффект нажатия для телефона */
         .menu-btn:active {
-            transform: scale(0.97);
-            background-color: #e8e8ed;
+            transform: scale(0.96);
+            background-color: #005fb8;
+            color: white;
         }
 
+        /* Кнопка Telegram */
         .tg-btn {
             margin-top: 10px;
-            background: #ffffff;
-            border: 1px solid #0088cc;
+            background-color: transparent;
+            border: 2px solid #0088cc;
             color: #0088cc;
+            border-radius: 980px; /* Очень круглое скругление как у кнопок Apple */
         }
 
         .tg-btn svg {
@@ -55,3 +87,34 @@
             fill: #0088cc;
             transition: fill 0.3s ease;
         }
+
+        @media (hover: hover) {
+            .tg-btn:hover {
+                background-color: #0088cc;
+                color: white;
+            }
+            .tg-btn:hover svg {
+                fill: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Информационный портал</h1>
+        <div class="menu-grid">
+            <a href="info.html" class="menu-btn">Важная информация</a>
+            <a href="rules.html" class="menu-btn">Основные правила работы</a>
+            <a href="contacts.html" class="menu-btn">Контакты</a>
+            <a href="#" class="menu-btn">Инструкции</a>
+            
+            <a href="https://t.me/+telgP_f1YNQ1YWZi" target="_blank" class="menu-btn tg-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.103 9.917c-.159.701-.573.873-1.162.54l-3.206-2.359-1.547 1.487c-.171.171-.315.315-.644.315l.23-3.268 5.948-5.375c.258-.23-.057-.357-.401-.126l-7.351 4.629-3.168-1.017c-.689-.215-.703-.689.143-1.02l12.387-4.774c.573-.209 1.074.133.873 1.052z"/>
+                </svg>
+                Учебник в Telegram
+            </a>
+        </div>
+    </div>
+</body>
+</html>
