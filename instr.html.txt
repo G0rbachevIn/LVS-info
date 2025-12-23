@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>База знаний — Инструкции LVS/Atmos</title>
+    <style>
+        body { 
+            background-color: #f5f5f7; 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            color: #1d1d1f;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { 
+            width: 100%; 
+            max-width: 600px; 
+            padding: 40px 20px; 
+            box-sizing: border-box; 
+        }
+        h1 { text-align: center; font-size: 28px; margin-bottom: 30px; letter-spacing: -0.5px; }
+        
+        /* Стили карточек */
+        .section-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        h2 { font-size: 20px; color: #0071e3; margin-top: 0; border-bottom: 1px solid #f2f2f7; padding-bottom: 10px; }
+        h3 { font-size: 17px; margin-top: 20px; color: #1d1d1f; border-left: 4px solid #0071e3; padding-left: 10px; }
+        
+        p, li { font-size: 15px; line-height: 1.6; color: #424245; }
+        ul, ol { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+
+        /* Выделения */
+        .important-note {
+            background: #fff2f2;
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid #ff3b30;
+            margin: 15px 0;
+        }
+        .important-note strong { color: #d70015; }
+
+        .pro-tip {
+            background: #f0f7ff;
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid #0071e3;
+            margin: 15px 0;
+        }
+
+        .phone-only {
+            text-align: center;
+            font-weight: 700;
+            color: #ff9500;
+            text-transform: uppercase;
+            border: 2px dashed #ff9500;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .back-link { 
+            display: block; 
+            text-align: center; 
+            margin-top: 40px; 
+            color: #86868b; 
+            text-decoration: none; 
+            font-size: 16px; 
+        }
+        .back-link:hover { color: #0071e3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Инструкции</h1>
+
+        <div class="section-card">
+            <h2>1. Стажировка</h2>
+            <p>В первые дни стажировки необходимо обучить сотрудника следующим блокам:</p>
+            
+            <h3>Касса и Терминал</h3>
+            <ul>
+                <li>Работа по штрих-коду и через поиск.</li>
+                <li>Синхронизация и замена чековой ленты.</li>
+                <li>Процедура возврата и закрытия смены.</li>
+                <li>Оплата картой / QR-кодом.</li>
+                <li>Высчитывание налички по чекам закрытия.</li>
+            </ul>
+
+            <h3>Техническая часть</h3>
+            <ul>
+                <li>Включение электричества и перезагрузка роутера.</li>
+                <li>Расположение и включение камер.</li>
+            </ul>
+
+            <div class="phone-only">Всё это делаем с телефона стажирующегося!</div>
+            <ul>
+                <li>Установка Excel (Мои документы).</li>
+                <li>Приложение PANTUM для принтера.</li>
+            </ul>
+
+            <h3>Знание товара</h3>
+            <ul>
+                <li><strong>Одноразки:</strong> крепость, затяжка, функции.</li>
+                <li><strong>Жидкости:</strong> солевые vs щелочные, крепость.</li>
+                <li><strong>Pod-системы:</strong> мощность, обдув, типы испарителей.</li>
+            </ul>
+
+            <div class="pro-tip">
+                <strong>Инвентаризация:</strong> Дайте стажеру самостоятельно посчитать группу товаров. Контролируйте процесс.
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>2. Работа с кассой МТС</h2>
+            
+            <h3>Открытие смены</h3>
+            <p><strong>Меню — Отчеты и операции — Открыть смену.</strong> <br>Фото чека с временем отправляем в локальную беседу.</p>
+
+            <h3>Возврат (Инструкция)</h3>
+            <ol>
+                <li>Кнопка <strong>"Чек"</strong> внизу.</li>
+                <li>Три точки в углу — <strong>"Возврат"</strong>.</li>
+                <li>Выбрать нужный чек из списка.</li>
+                <li>Нажать "Вернуть все" или выбрать товар.</li>
+            </ol>
+
+            <h3>Добавление Штрихкодов</h3>
+            <div class="important-note">
+                <strong>Зачем:</strong> Чтобы товар пробивался сканером, а не поиском. Это коллективная задача.
+            </div>
+            <p>Путь: <strong>Каталог — Поиск — Редактировать — Штрихкоды — Добавить.</strong></p>
+
+            <h3>Особенности поиска</h3>
+            <ul>
+                <li><strong>DUALL:</strong> закрывайте пальцем ненужный ШК (20 или Hard).</li>
+                <li><strong>Plonq:</strong> ШК часто повторяются, проверяйте вкус на экране!</li>
+                <li><strong>HUSKY:</strong> серии Cyber могут биться как AirMax — сверяйте вручную.</li>
+            </ul>
+        </div>
+
+        <div class="section-card">
+            <h2>3. Банковский терминал</h2>
+            <div class="pro-tip">
+                Предлагают наличку — не отказывайтесь! Мы платим % банку за каждую транзакцию.
+            </div>
+            
+            <h3>Чек отказа, а деньги списались?</h3>
+            <ul>
+                <li>Договоритесь по-человечески: возьмите номер телефона.</li>
+                <li>Если в конце смены денег не хватит — свяжитесь с клиентом.</li>
+                <li>Главное — спокойствие и вежливость.</li>
+            </ul>
+
+            <h3>Интегрированный терминал</h3>
+            <p>Сумма передается автоматически. Сначала выезжает кассовый чек, затем два чека терминала из кассы.</p>
+        </div>
+
+        <div class="section-card">
+            <h2>4. Прием поставок</h2>
+            <p>Принимаем строго по накладным от Кости! Накладная поставщика может врать.</p>
+            
+            <div class="important-note">
+                <strong>Закон об МРЦ:</strong> Если покупатель подозрительный (контрольный закуп) — продаем жижу за <strong>1890 руб.</strong> (Артикул в поиске: <strong>333</strong>).
+            </div>
+            <p>После смены ценников — обязательное фото витрины Косте в ЛС.</p>
+        </div>
+
+        <div class="section-card">
+            <h2>5. Работа с браком</h2>
+            <h3>Одноразки</h3>
+            <p>Обмен только при проверке на месте. Исключение — постоянные клиенты.</p>
+            <ul>
+                <li><strong>Меняем:</strong> автофаер (шипит), не работает после зарядки (3-5 мин), течет из пакета.</li>
+                <li><strong>НЕ меняем:</strong> не понравился вкус, "не накуривает", гарь спустя неделю.</li>
+            </ul>
+
+            <div class="important-note">
+                <strong>Важно:</strong> Без коробки брак не принимается! В коробку кладем записку: ФИО, дата, причина.
+            </div>
+            <p style="color:red; font-weight:bold;">Если Андрей или Костя найдут в браке рабочее устройство — его стоимость вычитается из ЗП продавца.</p>
+        </div>
+
+        <a href="index.html" class="back-link">← Вернуться в меню</a>
+    </div>
+</body>
+</html>
