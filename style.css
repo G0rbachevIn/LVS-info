@@ -1,90 +1,57 @@
-/* --- Добавлено для страницы Контакты --- */
+.menu-grid { display: flex; flex-direction: column; gap: 12px; }
+        
+        .menu-btn { 
+            display: flex; align-items: center; justify-content: center; 
+            background: white; padding: 22px; border-radius: 12px; 
+            text-decoration: none; color: #1d1d1f; /* Цвет текста Apple */
+            font-weight: 500; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03); 
+            border: 1px solid #eee; 
+            font-size: 16px; 
+            
+            /* Плавность как у Apple (0.3s — золотой стандарт) */
+            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); 
+            position: relative;
+            overflow: hidden;
+        }
 
-/* Блоки контактов */
-.contact-block {
-    margin: 20px 0;
-}
+        /* Эффект при наведении (Desktop) */
+        @media (hover: hover) {
+            .menu-btn:hover {
+                background-color: #f5f5f7; /* Светло-серый оттенок Apple */
+                border-color: #d2d2d7;
+                transform: translateY(-2px); /* Легкий подъем */
+                box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+            }
+        }
 
-.contact-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+        /* Специальный эффект для Telegram при наведении */
+        @media (hover: hover) {
+            .tg-btn:hover {
+                background-color: #0088cc;
+                color: white;
+                border-color: #0088cc;
+            }
+            .tg-btn:hover svg {
+                fill: white; /* Иконка тоже белеет */
+            }
+        }
 
-/* На мобильных телефонах логотип встанет сверху */
-@media (max-width: 600px) {
-    .contact-header {
-        flex-direction: column;
-        text-align: center;
-    }
-}
+        /* Эффект при нажатии (Mobile) */
+        .menu-btn:active {
+            transform: scale(0.97);
+            background-color: #e8e8ed;
+        }
 
-.brand-logo {
-    width: 60px;
-    height: 60px;
-    object-fit: contain; /* Чтобы логотип не сплющивался */
-}
+        .tg-btn {
+            margin-top: 10px;
+            background: #ffffff;
+            border: 1px solid #0088cc;
+            color: #0088cc;
+        }
 
-.contact-info h2 {
-    font-size: 1.1rem;
-    margin: 0 0 5px 0;
-    color: #555;
-    font-weight: 500;
-}
-
-.phone-link {
-    font-size: 1.4rem;
-    color: #2c3e50;
-    text-decoration: none;
-    font-weight: bold;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s;
-}
-
-.phone-link:hover {
-    border-bottom-color: #2c3e50;
-}
-
-/* Разделитель */
-.divider {
-    border: 0;
-    height: 1px;
-    background: #eee;
-    margin: 30px 0;
-}
-
-/* Секция ИНН */
-.inn-section h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: #444;
-    margin-bottom: 15px;
-}
-
-.inn-list {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 20px;
-    border: 1px solid #eee;
-}
-
-.inn-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 1.05rem;
-}
-
-.inn-item:last-child {
-    margin-bottom: 0;
-}
-
-.inn-item .name {
-    font-weight: 500;
-}
-
-.inn-item .number {
-    font-family: monospace; /* Шрифт как у печатной машинки для цифр */
-    color: #666;
-    letter-spacing: 0.5px;
-}
+        .tg-btn svg {
+            margin-right: 10px;
+            fill: #0088cc;
+            transition: fill 0.3s ease;
+        }
