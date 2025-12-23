@@ -3,48 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Информационный портал</title>
+    <title>Информационный портал LVS/Atmos</title>
     <style>
+        /* ОСНОВНЫЕ СТИЛИ */
         body { 
             background-color: #f5f5f7; 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif; 
             margin: 0; 
             display: flex; 
             justify-content: center; 
             -webkit-font-smoothing: antialiased;
+            color: #1d1d1f;
         }
 
         .container { 
             width: 100%; 
             max-width: 450px; 
-            padding: 120px 20px 50px 20px; 
+            padding: 100px 20px 50px 20px; 
             box-sizing: border-box; 
             position: relative;
         }
 
+        /* ЛОГОТИП */
         .header-logo {
             position: absolute;
             top: 25px;
             right: 25px;
-            max-width: 91px; 
+            max-width: 90px; 
             height: auto;
             opacity: 0.9;
-            transition: all 0.5s ease;
+        }
+
+        /* ПОИСКОВАЯ СТРОКА */
+        .search-container {
+            margin-bottom: 35px;
+            text-align: center;
         }
 
         h1 { 
-            text-align: center; 
-            color: #1d1d1f; 
-            margin-bottom: 45px; 
-            font-weight: 600; 
             font-size: 22px; 
+            font-weight: 600; 
+            margin-bottom: 20px; 
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        
+
+        .search-bar-wrapper {
+            background: #e5e5ea;
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-bar-wrapper:hover {
+            background: #d1d1d6;
+        }
+
+        #siteSearch {
+            background: none;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 16px;
+            color: #1d1d1f;
+            cursor: pointer;
+        }
+
+        /* СЕТКА КНОПОК */
         .menu-grid { 
             display: flex; 
             flex-direction: column; 
-            gap: 16px; 
+            gap: 14px; 
         }
         
         .menu-btn { 
@@ -52,26 +84,32 @@
             align-items: center; 
             justify-content: center; 
             background: white; 
-            padding: 20px 25px; 
-            border-radius: 14px; 
+            padding: 18px 20px; 
+            border-radius: 16px; 
             text-decoration: none; 
             color: #1d1d1f; 
             font-weight: 500; 
             font-size: 17px; 
             border: 1px solid rgba(0,0,0,0.04); 
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .menu-btn:active { transform: scale(0.98); }
+        /* Эффект при нажатии на телефоне */
+        .menu-btn:active {
+            transform: scale(0.97);
+            background-color: #f2f2f7;
+        }
 
-        /* Праздничная кнопка */
+        /* ПРАЗДНИЧНАЯ КНОПКА */
         .holiday-btn {
             border: 1.5px solid #ff3b30;
             color: #ff3b30;
-            background-color: rgba(255, 59, 48, 0.05);
+            background-color: rgba(255, 59, 48, 0.04);
+            font-weight: 600;
         }
 
+        /* КНОПКА TELEGRAM */
         .tg-btn {
             margin-top: 10px;
             background-color: transparent;
@@ -80,13 +118,30 @@
             border-radius: 980px; 
         }
 
-        .tg-btn svg { margin-right: 12px; fill: #0088cc; }
+        .tg-btn svg {
+            margin-right: 10px;
+            fill: #0088cc;
+        }
+
+        /* Иконка поиска для красоты */
+        .search-icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
         <img src="logo.png" alt="Logo" class="header-logo">
-        <h1>Информационный портал</h1>
+
+        <div class="search-container">
+            <h1>Информационный портал</h1>
+            <div class="search-bar-wrapper" onclick="window.location.href='search.html'">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="siteSearch" placeholder="Найти (брак, касса, возврат...)" readonly>
+            </div>
+        </div>
         
         <div class="menu-grid">
             <a href="rules.html" class="menu-btn">Важная информация</a>
@@ -97,10 +152,13 @@
             <a href="holiday.html" class="menu-btn holiday-btn">🎄 График на праздники</a>
             
             <a href="https://t.me/+telgP_f1YNQ1YWZi" target="_blank" class="menu-btn tg-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.103 9.917c-.159.701-.573.873-1.162.54l-3.206-2.359-1.547 1.487c-.171.171-.315.315-.644.315l.23-3.268 5.948-5.375c.258-.23-.057-.357-.401-.126l-7.351 4.629-3.168-1.017c-.689-.215-.703-.689.143-1.02l12.387-4.774c.573-.209 1.074.133.873 1.052z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.103 9.917c-.159.701-.573.873-1.162.54l-3.206-2.359-1.547 1.487c-.171.171-.315.315-.644.315l.23-3.268 5.948-5.375c.258-.23-.057-.357-.401-.126l-7.351 4.629-3.168-1.017c-.689-.215-.703-.689.143-1.02l12.387-4.774c.573-.209 1.074.133.873 1.052z"/>
+                </svg>
                 Учебник в Telegram
             </a>
         </div>
     </div>
+
 </body>
 </html>
