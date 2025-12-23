@@ -3,149 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Важная информация</title>
+    <title>Меню</title>
     <style>
-        body { background: #f2f4f6; font-family: -apple-system, sans-serif; margin: 0; display: flex; justify-content: center; color: #333; }
+        body { background: #f2f4f6; font-family: -apple-system, sans-serif; margin: 0; display: flex; justify-content: center; }
         .container { width: 100%; max-width: 500px; padding: 20px; box-sizing: border-box; }
-        h1 { text-align: center; font-size: 24px; color: #2c3e50; margin-bottom: 30px; font-weight: 400; }
+        h1 { text-align: center; color: #2c3e50; margin: 40px 0; font-weight: 300; font-size: 24px; text-transform: uppercase; letter-spacing: 1px; }
         
-        details {
-            background: white;
-            margin-bottom: 12px;
-            border-radius: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            overflow: hidden;
-        }
-        summary {
-            padding: 20px;
-            font-weight: 500;
-            cursor: pointer;
-            list-style: none;
-            outline: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-        }
-        summary::-webkit-details-marker { display: none; }
-        summary::after {
-            content: "+";
-            color: #aaa;
-            font-size: 18px;
-            font-weight: 300;
-        }
-        details[open] summary::after {
-            content: "–";
-        }
+        .menu-grid { display: flex; flex-direction: column; gap: 12px; }
         
-        .content {
-            padding: 0 20px 20px 20px;
-            font-size: 15px;
-            line-height: 1.6;
-            color: #444;
-            border-top: 1px solid #f9f9f9;
+        .menu-btn { 
+            display: flex; align-items: center; justify-content: center; 
+            background: white; padding: 22px; border-radius: 12px; 
+            text-decoration: none; color: #333; font-weight: 500; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03); border: 1px solid #eee; 
+            font-size: 16px; transition: all 0.2s ease;
         }
-        .content p { margin: 12px 0; }
-        
-        .alert { 
-            color: #333; 
-            font-weight: 500; 
-            background: #f8f8f8; 
-            padding: 15px; 
-            border-radius: 8px; 
-            border-left: 3px solid #333;
-            margin: 15px 0;
+
+        /* Кнопка Telegram (отдельный стиль) */
+        .tg-btn {
+            margin-top: 10px;
+            background: #ffffff;
+            border: 1px solid #0088cc; /* Фирменный цвет Telegram для рамки */
+            color: #0088cc;
         }
-        .highlight {
-            background: #fdfdfd;
-            padding: 10px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            font-size: 14px;
+
+        .tg-btn svg {
+            margin-right: 10px;
+            fill: #0088cc;
         }
-        .back { display: block; text-align: center; margin-top: 30px; color: #999; text-decoration: none; font-size: 13px; text-transform: uppercase; }
+
+        .menu-btn:active { background: #f9f9f9; transform: scale(0.98); }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Важная информация</h1>
-
-        <details>
-            <summary>Действия при проверках</summary>
-            <div class="content">
-                <p>Главное: не паникуйте. Вы лично не нарушаете никаких законов, проблем у вас не будет.</p>
-                <div class="alert">
-                    1. Уточните ведомство (Роспотребнадзор, МВД, УБЭП или общественные организации).<br>
-                    2. Уточните возможность звонка собственнику.<br>
-                    3. Свяжитесь с Иваном, объясните ситуацию и передайте ему трубку.
-                </div>
-            </div>
-        </details>
-
-        <details>
-            <summary>Инвентаризация</summary>
-            <div class="content">
-                <p>Новым сотрудникам рекомендуется сразу пересчитать товар на точке. Вы несете полную материальную ответственность.</p>
-                <div class="highlight">
-                    Цели инвентаризации:<br>
-                    • Ваша безопасность и подтверждение честности.<br>
-                    • Контроль актуальных остатков вкусов.<br>
-                    • Изучение ассортимента и мест хранения товара.
-                </div>
-            </div>
-        </details>
-
-        <details>
-            <summary>Работа со средним чеком</summary>
-            <div class="content">
-                <p>• Предлагайте приобретать несколько единиц товара сразу.<br>
-                   • Предлагайте качественные товары более высокого ценового сегмента.<br>
-                   • При продаже жидкостей предлагайте расходные материалы (испарители/картриджи).<br>
-                   • Рекомендуйте замену расходника при покупке новой жидкости.</p>
-            </div>
-        </details>
-
-        <details>
-            <summary>Коммерческая тайна</summary>
-            <div class="content">
-                <p class="alert">Запрещено разглашать данные о дневной выручке и оборотах посторонним лицам.</p>
-                <p>Это касается поставщиков и представителей брендов. Любые подобные запросы являются попыткой анализа конкурентной среды. Ответ: «Это коммерческая тайна, за разглашение предусмотрены санкции».</p>
-            </div>
-        </details>
-
-        <details>
-            <summary>Работа с чеками</summary>
-            <div class="content">
-                <p>Выдача бумажного чека обязательна при любой покупке (наличные, карта, перевод).</p>
-                <div class="alert">Штраф за выдачу товара без чека — 1000 руб.</div>
-                <p>Своевременно информируйте Андрея о необходимости закупки кассовой ленты.</p>
-            </div>
-        </details>
-
-        <details>
-            <summary>Работа с браком</summary>
-            <div class="content">
-                <p>• Жидкости и расходные материалы обмену и возврату не подлежат.<br>
-                   • Одноразовые устройства проверяются покупателем на месте.<br>
-                   • Гарантия на системы (поды) — 1 неделя.<br>
-                   • При приеме брака обязательно прикладывайте записку с причиной, датой и вашим ФИО.</p>
-            </div>
-        </details>
-
-        <details>
-            <summary>Мотивация и дисциплина</summary>
-            <div class="content">
-                <p>• Зарплата: процент выплачивается при объеме продаж от 30 000 руб.<br>
-                   • Опоздание: 50 руб / 1 минута.<br>
-                   • Замены: уведомление принимается до 15:00 дня, предшествующего смене.<br>
-                   • Штрафы ТЦ (курение, закрытая точка): в среднем 5 000 руб.</p>
-            </div>
-        </details>
-
-        <a href="index.html" class="back">Вернуться в меню</a>
+        <h1>Информационный портал</h1>
+        
+        <div class="menu-grid">
+            <a href="info.html" class="menu-btn">Важная информация</a>
+            <a href="rules.html" class="menu-btn">Основные правила работы</a>
+            <a href="contacts.html" class="menu-btn">Контакты</a>
+            <a href="#" class="menu-btn">Инструкции</a>
+            
+            <a href="https://t.me/+telgP_f1YNQ1YWZi" target="_blank" class="menu-btn tg-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.103 9.917c-.159.701-.573.873-1.162.54l-3.206-2.359-1.547 1.487c-.171.171-.315.315-.644.315l.23-3.268 5.948-5.375c.258-.23-.057-.357-.401-.126l-7.351 4.629-3.168-1.017c-.689-.215-.703-.689.143-1.02l12.387-4.774c.573-.209 1.074.133.873 1.052z"/>
+                </svg>
+                Учебник в Telegram
+            </a>
+        </div>
     </div>
 </body>
 </html>
