@@ -17,7 +17,7 @@
         .container { 
             width: 100%; 
             max-width: 480px; 
-            padding: 40px 20px; 
+            padding: 30px 20px; 
             box-sizing: border-box; 
         }
         h1 { text-align: center; font-size: 24px; font-weight: 600; margin-bottom: 25px; }
@@ -46,22 +46,25 @@
             justify-content: space-between;
             padding: 6px 0;
             font-size: 15px;
+            border-bottom: 1px solid #f9f9f9;
         }
+        .schedule-row:last-child { border-bottom: none; }
 
         .date { color: #86868b; }
         .time { font-weight: 500; text-align: right; }
         
-        /* Особый стиль для выходного и уточнения */
         .off { color: #ff3b30; font-weight: 600; }
-        .pending { color: #ff9500; font-style: italic; }
+        .extended { color: #34c759; font-weight: 600; }
 
         .back-link { 
             display: block; 
             text-align: center; 
-            margin-top: 30px; 
-            color: #0071e3; 
+            margin: 30px 0; 
+            color: #86868b; 
             text-decoration: none; 
-            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -70,58 +73,42 @@
         <h1>График работы 🎄</h1>
 
         <div class="location-card">
-            <span class="location-name">Реутов</span>
-            <div class="schedule-row"><span class="date">31 декабря</span><span class="time">до 20:00</span></div>
-            <div class="schedule-row"><span class="date">1 января</span><span class="time">с 12:00</span></div>
-        </div>
-
-        <div class="location-card">
-            <span class="location-name">Краснодар</span>
-            <div class="schedule-row"><span class="date">31 декабря</span><span class="time">до 20:00</span></div>
-            <div class="schedule-row"><span class="date">1 января</span><span class="time">с 11:00</span></div>
-        </div>
-
-        <div class="location-card">
             <span class="location-name">Европолис / Европолис Вход</span>
             <div class="schedule-row">
-                <span class="date">Праздники</span>
-                <span class="time pending">Нет информации от ТЦ</span>
+                <span class="date">26 – 30 декабря</span>
+                <span class="time extended">до 23:00</span>
+            </div>
+            <div class="schedule-row">
+                <span class="date">31 декабря</span>
+                <span class="time">до 20:00</span>
+            </div>
+            <div class="schedule-row">
+                <span class="date">1 января</span>
+                <span class="time">с 14:00</span>
             </div>
         </div>
 
         <div class="location-card">
-            <span class="location-name">Метрополис</span>
+            <span class="location-name">Реутов / Метрополис</span>
             <div class="schedule-row"><span class="date">31 декабря</span><span class="time">до 20:00</span></div>
             <div class="schedule-row"><span class="date">1 января</span><span class="time">с 12:00</span></div>
         </div>
 
         <div class="location-card">
-            <span class="location-name">Котельники</span>
-            <div class="schedule-row"><span class="date">31 декабря</span><span class="time">до 20:00</span></div>
-            <div class="schedule-row"><span class="date">1 января</span><span class="time off">ВЫХОДНОЙ</span></div>
-        </div>
-
-        <div class="location-card">
-            <span class="location-name">Медведково</span>
-            <div class="schedule-row"><span class="date">31 декабря</span><span class="time">до 20:00</span></div>
-            <div class="schedule-row"><span class="date">1 января</span><span class="time off">ВЫХОДНОЙ</span></div>
-        </div>
-
-        <div class="location-card">
-            <span class="location-name">Новороссийск Мира</span>
+            <span class="location-name">Краснодар / Мира / Трудобелики</span>
             <div class="schedule-row"><span class="date">31 декабря</span><span class="time">до 20:00</span></div>
             <div class="schedule-row"><span class="date">1 января</span><span class="time">с 11:00</span></div>
         </div>
 
         <div class="location-card">
-            <span class="location-name">Трудобелики</span>
+            <span class="location-name">Котельники / Медведково</span>
             <div class="schedule-row"><span class="date">31 декабря</span><span class="time">до 20:00</span></div>
-            <div class="schedule-row"><span class="date">1 января</span><span class="time">с 11:00</span></div>
+            <div class="schedule-row"><span class="date">1 января</span><span class="time off">ВЫХОДНОЙ</span></div>
         </div>
 
         <div class="location-card">
             <span class="location-name">Новороссийск Лента</span>
-            <div class="schedule-row"><span class="date">31 декабря</span><span class="time">по графику Фейерверков</span></div>
+            <div class="schedule-row"><span class="date">31 декабря</span><span class="time">По графику Фейерверков</span></div>
             <div class="schedule-row"><span class="date">1 января</span><span class="time">с 11:00</span></div>
         </div>
 
